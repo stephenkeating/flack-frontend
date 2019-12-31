@@ -38,17 +38,20 @@ class MainContainer extends Component  {
   }
 
   render (){
-    console.log(this.state)
+    // console.log(this.state)
 
     return(
 
       <div className="app-container">
         <div className='left-nav'> 
+          <h1>Flack</h1>
+          <h3>Users:</h3>
           {this.renderUsers()}
+          <h3>Channels:</h3>
           {this.renderChannels()}
         </div>
         <div className='chat-window'>
-          <ChatWindow chats={this.state.channelChats} key={this.state.channel.id}/>
+          <ChatWindow channel={this.state.channel} chats={this.state.channelChats} key={this.state.channel.id}/>
         </div>
       </div>
 

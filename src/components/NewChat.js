@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 
 
-class Chat extends Component {
+class NewChat extends Component {
   
 
   render() {
     // console.log(this.props)
     return (
       <div className='chat'>
-        {this.props.name}: {this.props.message}
+        new Chat test
       </div>
     )
   }
 }
 
-export default Chat;
+export default NewChat;
