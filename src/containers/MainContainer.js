@@ -37,8 +37,13 @@ class MainContainer extends Component  {
     this.setState({channel: selectedChannel, channelChats: selectedChannel.chats})
   }
 
+  addNewChatToChannelChats = (newChat) => {
+    const newlyCreatedChat = {...newChat}
+    this.setState({channelChats: [...this.state.channelChats, newlyCreatedChat]})
+  }
+
   render (){
-    // console.log(this.state)
+    console.log(this.state)
 
     return(
 
@@ -48,10 +53,16 @@ class MainContainer extends Component  {
           <h3>Users:</h3>
           {this.renderUsers()}
           <h3>Channels:</h3>
-          {this.renderChannels()}
+          { this.state.user !== {} ? this.renderChannels() : null}
         </div>
         <div className='chat-window'>
-          <ChatWindow channel={this.state.channel} chats={this.state.channelChats} key={this.state.channel.id}/>
+          <ChatWindow 
+            channel={this.state.channel} 
+            chats={this.state.channelChats} 
+            user={this.state.user}
+            addNewChatToChannelChats={this.addNewChatToChannelChats}
+            key={this.state.channel.id}
+          />
         </div>
       </div>
 

@@ -5,12 +5,12 @@ import NewChat from '../components/NewChat.js';
 
 class ChatWindow extends Component {
 
-  state = {
-    chats: this.props.chats
-  }
+  // state = {
+  //   chats: this.props.chats
+  // }
 
   renderChat = () => {
-    return this.state.chats.map(chat => <Chat message={chat.message} name={chat.user.name} key={chat.id}/>)
+    return this.props.chats.map(chat => <Chat message={chat.message} name={chat.user.name} key={chat.id}/>)
   }
   
 
@@ -25,7 +25,7 @@ class ChatWindow extends Component {
 
         </div>
         {this.renderChat()}
-        <NewChat />
+        {this.props.chats.length > 0 ? <NewChat user={this.props.user} addNewChatToChannelChats={this.props.addNewChatToChannelChats} channel={this.props.channel} /> : `Please choose a user and channel.`}
       </div>
     )
   }
