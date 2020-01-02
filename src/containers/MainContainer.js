@@ -10,8 +10,8 @@ class MainContainer extends Component  {
     users: [],
     user: {},
     userChannels: [],
-    channel: {},
-    channelChats: []
+    channel: {}
+    // channelChats: []
   }
 
   componentDidMount() {
@@ -33,19 +33,23 @@ class MainContainer extends Component  {
     return this.state.userChannels.map(channel => <Channels channel={channel} key={channel.id} selectChannel={this.selectChannel}/>)
   }
 
+  // selectChannel = (selectedChannel) => {
+  //   this.setState({channel: selectedChannel, channelChats: selectedChannel.chats})
+  // }
+
   selectChannel = (selectedChannel) => {
-    this.setState({channel: selectedChannel, channelChats: selectedChannel.chats})
+    this.setState({channel: selectedChannel})
   }
 
-  addNewChatToChannelChats = (newChat) => {
-    const newlyCreatedChat = {...newChat}
-    this.setState({channelChats: [...this.state.channelChats, newlyCreatedChat]})
-  }
+  // addNewChatToChannelChats = (newChat) => {
+  //   const newlyCreatedChat = {...newChat}
+  //   this.setState({channelChats: [...this.state.channelChats, newlyCreatedChat]})
+  // }
 
-  removeChat = (chatToRemove) => {
-    // console.log(chatToRemove)
-    this.setState({channelChats: this.state.channelChats.filter(chat => chat.id !== chatToRemove)})
-  }
+  // removeChat = (chatToRemove) => {
+  //   // console.log(chatToRemove)
+  //   this.setState({channelChats: this.state.channelChats.filter(chat => chat.id !== chatToRemove)})
+  // }
 
   render (){
     // console.log(this.state)
@@ -79,10 +83,10 @@ class MainContainer extends Component  {
             ? <div className='chat-window'>
               <ChatWindow 
                 channel={this.state.channel} 
-                chats={this.state.channelChats} 
+                // chats={this.state.channelChats} 
                 user={this.state.user}
-                addNewChatToChannelChats={this.addNewChatToChannelChats}
-                removeChat={this.removeChat}
+                // addNewChatToChannelChats={this.addNewChatToChannelChats}
+                // removeChat={this.removeChat}
                 key={this.state.channel.id}
               />
               </div>
