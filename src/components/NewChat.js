@@ -45,7 +45,7 @@ class NewChat extends Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>

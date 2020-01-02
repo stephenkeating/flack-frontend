@@ -42,28 +42,54 @@ class MainContainer extends Component  {
     this.setState({channelChats: [...this.state.channelChats, newlyCreatedChat]})
   }
 
+  removeChat = (chatToRemove) => {
+    // console.log(chatToRemove)
+    this.setState({channelChats: this.state.channelChats.filter(chat => chat.id !== chatToRemove)})
+  }
+
   render (){
-    console.log(this.state)
+    // console.log(this.state)
 
     return(
 
       <div className="app-container">
         <div className='left-nav'> 
           <h1>Flack</h1>
-          <h3>Users:</h3>
-          {this.renderUsers()}
-          <h3>Channels:</h3>
+          { this.state.user.name
+            ? <>
+              <h3>Current User:</h3>
+              {this.state.user.name}
+              </>
+            : <>
+                <h3>Choose User:</h3>
+                {this.renderUsers()}
+              </> 
+          }
+          
+          { this.state.user.name
+            ? <>
+              <h3>Channels:</h3>
+              </>
+            : null
+          }
           { this.state.user !== {} ? this.renderChannels() : null}
         </div>
-        <div className='chat-window'>
-          <ChatWindow 
-            channel={this.state.channel} 
-            chats={this.state.channelChats} 
-            user={this.state.user}
-            addNewChatToChannelChats={this.addNewChatToChannelChats}
-            key={this.state.channel.id}
-          />
-        </div>
+
+        { this.state.channel.name
+            ? <div className='chat-window'>
+              <ChatWindow 
+                channel={this.state.channel} 
+                chats={this.state.channelChats} 
+                user={this.state.user}
+                addNewChatToChannelChats={this.addNewChatToChannelChats}
+                removeChat={this.removeChat}
+                key={this.state.channel.id}
+              />
+              </div>
+            : null
+          }
+
+        
       </div>
 
     )

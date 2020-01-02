@@ -10,12 +10,12 @@ class ChatWindow extends Component {
   // }
 
   renderChat = () => {
-    return this.props.chats.map(chat => <Chat message={chat.message} name={chat.user.name} key={chat.id}/>)
+    return this.props.chats.map(chat => <Chat chat={chat} message={chat.message} name={chat.user.name} user={this.props.user} removeChat={this.props.removeChat} key={chat.id}/>)
   }
   
 
   render() {
-    // console.log(this.props)
+    console.log(this.props)
     return (
       <div >
         <div>
