@@ -1,35 +1,158 @@
+body {background-color: #272727;}
 
 
 .app-container {
   display: flex;
-  justify-content: space-around;
-  margin: auto;
-  /* border: 1px solid gray; */
-  padding: 5px;
-  text-align: center;
-  align-items: stretch;
+  color: #ffffff;
 }
+
 .left-nav {
-  width: 25%;
+  width: 23%;
   margin: auto;
   border: 1px solid gray;
   padding: 5px;
   text-align: center;
-  align-items: stretch;
+  position: fixed;
+  left: 0;
+  background-color: #272727; 
+}
+
+.left-nav-user-box {
+  background-color: #000000; 
+  padding: 5px;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+
+.left-nav-channel-box {
+  padding: 5px;
+  display: flex;
   flex-direction: column;
 }
+
+.channel-header {
+  font-weight: bold;
+  
+}
+
+.chat-window-header {
+  padding: 5px;
+  border: 1px solid gray;
+  background-color: #000000;
+}
+
+.left-nav-channels {
+  padding: 5px;
+  border: 1px solid gray;
+  background-color: #000000;
+}
+
+.left-nav-channels:hover {
+  padding: 5px;
+  border: 1px solid gray;
+  background-color: #272727;
+}
+
 .chat-window {
-  width: 65%;
+  width: 73%;
   margin: auto;
   border: 1px solid gray;
   padding: 5px;
   text-align: left;
   align-items: stretch;
+  position: fixed;
+  right: 0;
 }
+
 .chat {
   margin: auto;
   border: 1px solid gray;
   padding: 5px;
   text-align: left;
   align-items: stretch;
+}
+
+.avi {
+  height: 80px;
+  width: 80px;
+  border: 1px solid gray;
+}
+
+.user {
+  height: 120px;
+  width: 120px;
+  
+}
+
+.avi-chat {
+  height: 35px;
+  width: 35px;
+  
+}
+
+.chatbox-header {
+  flex-wrap: wrap;
+  font-weight: bold;  
+}
+
+.chatbox-body {
+  flex-wrap: wrap;
+  font-weight: normal;
+  padding: 5px;
+}
+
+.chatbox-header:hover {
+  background-color: #000000;
+}
+
+.chatbox-header:hover .delete-button {
+  visibility: visible;
+}
+
+.chatavi {
+  float: left;
+  padding: 3px;
+  
+}
+
+.delete-button {
+  background-color: #272727; 
+  border: 1px solid gray;
+  color: white;
+  padding: 1px 0px 1px 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  visibility: hidden;
+}
+
+.delete-button-div {
+  float: right;
+  /* margin-left: 2px; */
+}
+
+.submit-button {
+  background-color: #272727; 
+  border: 1px solid gray;
+  color: white;
+  /* padding: 1px 0px 2px 2px; */
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 5px 5px;
+  margin: 5px 0;
+  /* border: 2px solid #000000; */
+  border-radius: 0px;
+  box-sizing: border-box;
+  /* background-color: gray; */
+  color: black;
 }

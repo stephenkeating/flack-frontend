@@ -50,14 +50,14 @@ class ChatWindow extends Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div >
-        <div>
-
-        <h3> {this.state.channel.name} </h3>
-        {/* {this.props.channel.description} */}
-
+        <div className='chat-window-header'>
+          {/* <h3>  */}
+            {`${this.state.channel.name}: `}{this.props.channel.description}
+          {/* </h3> */}
+            
         </div>
         {this.renderChat()}
         {<NewChat 

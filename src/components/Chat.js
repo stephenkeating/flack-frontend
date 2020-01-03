@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Vader from '../darth-vader.jpg'
+import Luke from '../luke-skywalker.jpg'
 
 
 class Chat extends Component {
@@ -22,12 +24,20 @@ class Chat extends Component {
     // console.log(this.props)
     return (
       <div className='chat'>
-        {`${this.props.name}: `}
-        {this.props.message} 
-        {this.props.chat.user.id === this.props.user.id 
-          ? <button onClick={(e) => this.handleClick(e)}>Delete</button> 
-          : null
-        }
+        <div className='chatavi'>
+          {this.props.chat.user.name === 'Darth Vader'? <img className='avi-chat' src={Vader} alt='Vader'></img>: <img className='avi-chat' src={Luke} alt='Luke'></img>}
+        </div>
+        <div className='chatbox-header'>
+          {`${this.props.name}: `}
+          {this.props.chat.user.id === this.props.user.id 
+            ? <div className='delete-button-div'> <button className='delete-button' onClick={(e) => this.handleClick(e)}>❌</button> </div>
+            : null
+          }
+        <div className='chatbox-body'>
+          {this.props.message} 
+          
+        </div>
+        </div>
       </div>
     )
   }

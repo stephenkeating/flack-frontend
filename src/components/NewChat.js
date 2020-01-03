@@ -51,7 +51,7 @@ class NewChat extends Component {
         <label>
           <input type="text" placeholder='Message' value={this.state.newChat} onChange={(e) => this.handleChange(e.target.value)} />
         </label>
-        <input type="submit" value="Submit" />
+        <input className='submit-button' type="submit" value="Submit" />
       </form>
     );
   }
